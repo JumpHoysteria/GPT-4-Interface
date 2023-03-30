@@ -1,10 +1,12 @@
 import os
-
+from dotenv import load_dotenv
 import openai
 from flask import Flask, redirect, render_template, request, url_for
 
 app = Flask(__name__)
-openai.api_key = "To Be Inserted"
+
+load_dotenv()
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 @app.route("/", methods=("GET", "POST"))
