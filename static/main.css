@@ -24,43 +24,46 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding-top: 60px;
-}
-.icon {
-  width: 34px;
+  padding-top: 2px;
 }
 h3 {
   font-size: 32px;
-  line-height: 40px;
   font-weight: bold;
   color: #202123;
-  margin: 16px 0 40px;
 }
 form {
   display: flex;
+  justify-content: right;
+  align-items: center;
   flex-direction: column;
-  width: 320px;
+  width: 400px;
 }
 input[type="text"] {
   padding: 12px 16px;
   border: 1px solid #10a37f;
   border-radius: 4px;
   margin-bottom: 24px;
+  width: 16em;
+  float: flex;
 }
 ::placeholder {
   color: #8e8ea0;
   opacity: 1;
 }
-input[type="submit"] {
-  padding: 12px 0;
+textarea {
+  padding: 12px 20px;
   color: #fff;
-  background-color: #10a37f;
+  margin: 12px;
+  background-color: #222;
   border: none;
   border-radius: 4px;
-  text-align: center;
+  text-align: left;
   cursor: pointer;
 }
 .result {
-  font-weight: bold;
-  margin-top: 40px;
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  flex-direction: column;
+  width: 800px;
 }

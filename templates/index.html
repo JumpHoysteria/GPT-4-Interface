@@ -9,13 +9,14 @@
 </head>
 
 <body>
-  <img src="{{ url_for('static', filename='LookingGlass.png') }}" class="icon" />
-  <h3>GPT-4 Interface</h3>
+  <h3>GPT-4</h3>
   <form action="/" method="post">
-    <input type="text" name="question" placeholder="Enter your prompt" required />
+    <textarea style="overflow-y: auto;" placeholder="Enter your prompt" name="question" rows="10" cols="60" required autofocus>
+	</textarea>
     <input type="submit" value="Submit" />
   </form>
   {% if result %}
-  <div class="result">{{ result }}</div>
+  <div class="result">{{ result | safe }}</div>
   {% endif %}
 </body>
+
