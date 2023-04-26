@@ -26,20 +26,17 @@ def index():
                 ],
                 temperature=0.6,
             )
-            respond = response.choices[0].message.content
-            print(respond)
+            response = response.choices[0].message.content
             with open(path, "w+") as file1:
-                file1.write(respond)
-            with open(path, "rb") as file1:
-                content = file1.read()
-                content = content.replace(WINDOWS_LINE_ENDING, BROWSER_LINE_ENDING)
-            with open(path, "wb") as file1:
-                file1.write(content)
+                file1.write(response)
+
             return redirect(url_for("index"))
         except openai.error.RateLimitError:
             print("Model is overloaded")
             return redirect(url_for("index", result = f"ERROR: Model is overloaded \n {prompt}"))
             
-    with open(path, "r") as file1:
+    with open(path, "rb") as file1:
         result = file1.read()
+        result = result.replace(WINDOWS_LINE_ENDING, BROWSER_LINE_ENDING)
+        result = result.decode()
     return render_template("index.html", result=result)
