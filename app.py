@@ -11,7 +11,8 @@ BROWSER_LINE_ENDING = b'<br>'
 
 load_dotenv()
 openai.api_key = os.getenv("OPENAI_API_KEY")
-path = "C:\\Users\\Alex\\Documents\\GitHub\\GPT-4-Interface/response.txt"
+path = "C:\\Users\\Alex\\Documents\\GPT-4\\GPT-4-Interface/response.txt"
+
 
 @app.route("/", methods=("GET", "POST"))
 def index():
@@ -38,5 +39,5 @@ def index():
     with open(path, "rb") as file1:
         result = file1.read()
         result = result.replace(WINDOWS_LINE_ENDING, BROWSER_LINE_ENDING)
-        result = result.decode()
+        #result = result.decode()
     return render_template("index.html", result=result)
